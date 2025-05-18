@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProFix Appliance Repairs | 24/7 Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #00457C;
+            --secondary-green: #7DA617;
+            --light-blue: #D9ECF7;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        .logo h1 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--secondary-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 69, 124, 0.3), rgba(0, 69, 124, 0.3)), url('images/banner.avif') no-repeat center center/cover;
+            color: var(--white);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-green));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 69, 124, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 69, 124, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--light-blue);
+        }
+        
+        /* FOMO Banner */
+        .fomo-banner {
+            background-color: var(--secondary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--medium-gray);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .benefits-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary-green);
+            position: absolute;
+            left: 0;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-rating {
+            color: #FFC107;
+        }
+        
+        .testimonial-text p {
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+        
+        .google-review {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        .google-review i {
+            color: #4285F4;
+            margin-right: 5px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 69, 124, 0.9), rgba(0, 69, 124, 0.9)), url('https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--light-blue);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-details i {
+            color: var(--secondary-green);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: var(--light-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+        
+        .footer-col p {
+            color: var(--light-blue);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-blue);
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.JPG" alt="ProFix Logo">
+                
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Expert Appliance Repair Services</h2>
+            <p>Fast, reliable, and professional repair services for all your home appliances. Our certified technicians are available 24/7 to fix your appliances right at your home.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Book a Repair Now</a>
+                <a href="tel:+27604717237" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOMO Banner -->
+    <div class="fomo-banner">
+        <div class="container">
+            <p>📢 Book now to get 10% off - limited time offer, ending soon!!</p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Repair Services</h2>
+                <p>We fix all major brands of home electrical appliances with 6 months guarantee on parts and workmanship.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-refrigerator"></i>
+                    <h3>Fridges & Freezers</h3>
+                    <p>Expert repair for all refrigerator and freezer brands including Coca-Cola fridges.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-washing-machine"></i>
+                    <h3>Washing Machines</h3>
+                    <p>Repair and maintenance for all types of washing machines including Speed Queen.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-fire-burner"></i>
+                    <h3>Stoves & Ovens</h3>
+                    <p>Professional repair for electric and gas stoves, ovens, and cooktops.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>Air Conditioners</h3>
+                    <p>Installation, repair and maintenance for all AC units to keep you cool.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-dishwasher"></i>
+                    <h3>Dishwashers</h3>
+                    <p>Fix leaks, drainage issues and other common dishwasher problems.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Electric Faults</h3>
+                    <p>Diagnosis and repair of electrical issues in your home appliances.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-temperature-high"></i>
+                    <h3>Geysers</h3>
+                    <p>Repair and maintenance for water heaters and geysers of all types.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Cold Rooms</h3>
+                    <p>Commercial cold room installation, repair and maintenance services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Our Repair Services?</h2>
+                    <p>With over 15 years of experience in appliance repair, our certified technicians provide fast, reliable service you can trust.</p>
+                    <ul class="benefits-list">
+                        <li>24/7 emergency repair services available</li>
+                        <li>Onsite repairs at your home or business</li>
+                        <li>6 months guarantee on parts and workmanship</li>
+                        <li>No call out fee if you approve our quotation</li>
+                        <li>Highly qualified and experienced technicians</li>
+                        <li>Response within 25-30 minutes for every call</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Schedule a Repair</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/phonecallavailability.avif" alt="Technician repairing appliance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Mr Mbasa</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"My refrigerator stopped working on a weekend and OnSport appliance repairs  had a technician at my door within 30 minutes. He diagnosed and fixed the issue quickly and professionally. Highly recommend their services!"</p>
+                    </div>
+                    <div class="google-review">
+                        <i class="fab fa-google"></i>
+                        Posted on Google
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Mr Smith</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"The technician was extremely knowledgeable and fixed my washing machine in no time. Will definitely use them again."</p>
+                    </div>
+                    <div class="google-review">
+                        <i class="fab fa-google"></i>
+                        Posted on Google
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Mrs Mkhize</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"After a bad experience with another company, I called OnSport appliance repairs to fix my oven. They were prompt, professional, and reasonably priced. My oven works like new now. Thank you!"</p>
+                    </div>
+                    <div class="google-review">
+                        <i class="fab fa-google"></i>
+                        Posted on Google
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Appliance Repair Now?</h2>
+            <p>Don't let a broken appliance disrupt your life. Our technicians are available 24/7 to get your appliances working again.</p>
+            <a href="#contact" class="btn btn-primary">Book a Repair Now</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our appliance repair services.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What areas do you service?</div>
+                    <div class="faq-answer">
+                        <p>We service all residential areas in: Gqeberha, Jeffrey's bay, Grahamstown, Human's drop, Uitenhage and areas nearby these towns, we are mobile. Contact us to confirm if we cover your area.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How quickly can you respond to a service call?</div>
+                    <div class="faq-answer">
+                        <p>We guarantee a response within 25-30 minutes for every call, with most repairs scheduled within 24 hours. Emergency services are available 24/7.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is there a call-out fee?</div>
+                    <div class="faq-answer">
+                        <p>There is no call-out fee if you approve our quotation  we proceed with the repair.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What brands do you repair?</div>
+                    <div class="faq-answer">
+                        <p>We repair all major brands of home appliances including but not limited to Samsung, LG, Whirlpool, GE, Frigidaire, Bosch, Maytag, and more.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer any warranty on repairs?</div>
+                    <div class="faq-answer">
+                        <p>Yes, all our repairs come with a 6-month guarantee on both parts and workmanship. If the same issue recurs within this period, we'll fix it at no additional cost.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to buy parts separately?</div>
+                    <div class="faq-answer">
+                        <p>No, we source all necessary parts and include them in your repair quote. Our technicians come prepared with commonly needed parts to complete most repairs in one visit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Schedule a repair or get in touch with our customer service team.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i> +27 60 471 7237</p>
+                        <p><i class="fas fa-envelope"></i> repairsonspotappliance@gmail.com </p>
+                        <p><i class="fas fa-map-marker-alt"></i> 0076 North End Central,Gqeberha South Africa</p>
+                        <p><i class="fas fa-clock"></i> Open 24/7 for emergency repairs</p>
+                    </div>
+                    <h3>Service Areas</h3>
+                    <p>We service all residential areas in: Gqeberha, Jeffrey's bay, Grahamstown, Human's drop, Uitenhage and areas nearby these towns, we are mobile. Contact us to confirm if we cover your area.</p>
+                </div>
+                <div class="contact-form">
+                    <form id="repairForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone Number" required>
+                        <select required>
+                            <option value="">Select Appliance Type</option>
+                            <option value="fridge">Refrigerator/Freezer</option>
+                            <option value="washing">Washing Machine</option>
+                            <option value="dishwasher">Dishwasher</option>
+                            <option value="oven">Stove/Oven</option>
+                            <option value="dryer">Dryer</option>
+                            <option value="ac">Air Conditioner</option>
+                            <option value="geyser">Geyser</option>
+                            <option value="other">Other Appliance</option>
+                        </select>
+                        <textarea placeholder="Describe the issue you're experiencing"></textarea>
+                        <button type="submit" class="btn btn-primary">Request Service</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>OnSport appliance repairs</h3>
+                    <p>Professional appliance repair services you can trust. Fast, reliable, and guaranteed.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1C5DcDPViU/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                        <a href="https://wa.me/message/OD5D3BW7JLCWL1" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Refrigerator Repair</a></li>
+                        <li><a href="#">Washing Machine Repair</a></li>
+                        <li><a href="#">Oven & Stove Repair</a></li>
+                        <li><a href="#">Dishwasher Repair</a></li>
+                        <li><a href="#">AC Repair</a></li>
+                        <li><a href="#">Emergency Repairs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +27 60 471 7237</p>
+                        <p><i class="fas fa-envelope"></i> repairsonspotappliance@gmail.com </p>
+                        <p><i class="fas fa-map-marker-alt"></i> 0076 North End Central,Gqeberha South Africa</p>
+                        <p><i class="fas fa-clock"></i> Open 24/7 for emergency repairs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OnSport Appliance Repairs. Proudly designed by <a href="https://pulsedigitallab.co.za" target="_blank" rel="noopener noreferrer" style="color: var(--light-blue);">Pulse Digital Lab</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current answer
+                question.classList.toggle('active');
+                
+                if (isActive) {
+                    answer.classList.remove('show');
+                } else {
+                    answer.classList.add('show');
+                }
+            });
+        });
+        
+        // Form Submission
+        const repairForm = document.getElementById('repairForm');
+        
+        repairForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your service request! We will contact you shortly to confirm your appointment.');
+            repairForm.reset();
+        });
+        
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Countdown Timer for FOMO Banner
+        // Countdown Timer for FOMO Banner
+function updateCountdown() {
+    const now = new Date();
+    const offerEndDate = new Date('May 30, 2025 23:59:59');
+    
+    const diff = offerEndDate - now;
+    
+    if (diff <= 0) {
+        // Timer has expired
+        const fomoBanner = document.querySelector('.fomo-banner');
+        if (fomoBanner) {
+            fomoBanner.innerHTML = `<p>⏰ The 10% off offer has ended! <a href="#contact" style="color:white;text-decoration:underline">Contact us</a> for current promotions!</p>`;
+            fomoBanner.style.backgroundColor = '#CC0000'; // Change to red to indicate expired
+        }
+        clearInterval(countdownInterval);
+        return;
+    }
+    
+    // Calculate time remaining
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    const fomoBanner = document.querySelector('.fomo-banner p');
+    if (fomoBanner) {
+        fomoBanner.innerHTML = `📢 <strong>10% OFF ALL REPAIRS!</strong> Offer ends May 30th - <span style="font-weight:bold">${days}d ${hours}h ${minutes}m ${seconds}s</span> left!`;
+    }
+}
+
+    // Update countdown every second
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
